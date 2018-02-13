@@ -26,4 +26,17 @@
         android:layout_height="wrap_content"
         android:hint="Type something here"
         android:maxLines="2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_view"
+        android:src="@drawable/christmass_deer_rudolf"/>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"/>
 </LinearLayout>
