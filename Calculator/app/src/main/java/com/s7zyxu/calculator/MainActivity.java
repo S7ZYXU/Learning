@@ -7,14 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private TextView editView;
-    private String op;
-    private double num1=0,num2=0,result=0;
+    private String op="+";
+    private BigDecimal num = BigDecimal.valueOf(0),result = BigDecimal.valueOf(0);
     private Button btnum0,btnum1,btnum2,btnum3,btnum4,btnum5,btnum6,btnum7,btnum8,btnum9;
     private Button btopposite,btdivision,btmulti,btsub,btadd,btresult;
     private Button btpoint;
@@ -71,151 +72,415 @@ public class MainActivity extends AppCompatActivity {
             editView = (TextView)findViewById(R.id.editView);
             String str;
             Button button = (Button)view;
-            DecimalFormat format = new DecimalFormat("###.##");
 
             try{
                 switch (button.getId()){
                     case R.id.num0:{
-                        if(!editView.getText().equals("0")){
-                            editView.setText(editView.getText().toString()+0);
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "0";
+                        }else{
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "0";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num1:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("1");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "1";
                         }else{
-                            editView.setText(editView.getText().toString()+1);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "1";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "1";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num2:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("2");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "2";
                         }else{
-                            editView.setText(editView.getText().toString()+2);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "2";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "2";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num3:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("3");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "3";
                         }else{
-                            editView.setText(editView.getText().toString()+3);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "3";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "3";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num4:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("4");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "4";
                         }else{
-                            editView.setText(editView.getText().toString()+4);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "4";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "4";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num5:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("5");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "5";
                         }else{
-                            editView.setText(editView.getText().toString()+5);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "5";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "5";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num6:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("6");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "6";
                         }else{
-                            editView.setText(editView.getText().toString()+6);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "6";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "6";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num7:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("7");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "7";
                         }else{
-                            editView.setText(editView.getText().toString()+7);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "7";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "7";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num8:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("8");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "8";
                         }else{
-                            editView.setText(editView.getText().toString()+8);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "8";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "8";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.num9:{
-                        if(editView.getText().equals("0")){
-                            editView.setText("9");
+                        str = editView.getText().toString();
+                        if(str.equals("") || str.equals("错误")){
+                            str = "9";
                         }else{
-                            editView.setText(editView.getText().toString()+9);
+                            if(!str.equals("0")){
+                                if(Character.isDigit(str.charAt(str.length()-1)) || str.charAt(str.length()-1)=='.'){
+                                    str += "9";
+                                }else{
+                                    str = "";
+                                    textView.setText(String.valueOf(result));
+                                }
+                            }else{
+                                str = "9";
+                            }
                         }
+                        editView.setText(str);
                         break;
                     }
 
                     case R.id.opposite:{
                         str = editView.getText().toString();
                         if(Character.isDigit(str.charAt(str.length()-1))){
-                            double d = Double.valueOf(str);
-                            d = -d;
-                            editView.setText(String.valueOf(d));
+                            BigDecimal decimal = new BigDecimal(str);
+                            decimal = decimal.multiply(new BigDecimal(-1));
+                            str = String.valueOf(decimal);
                         }
+                        editView.setText(str);
                         break;
                     }
                     case R.id.division:{
+                        boolean flag = true;
                         str = editView.getText().toString();
-                        num1 = Double.valueOf(str);
-                        editView.setText(str+'/');
+                        num = new BigDecimal(str);
+                        switch(op){
+                            case "+":
+                                result = result.add(num);
+                                break;
+                            case "-":
+                                result = result.subtract(num);
+                                break;
+                            case "*":
+                                result = result.multiply(num);
+                                break;
+                            case "/":
+                                if(num.compareTo(new BigDecimal(0))==0){
+                                    flag = false;
+                                }else{
+                                    result = result.divide(num,10,4);
+                                }
+                                break;
+                        }
+                        if(flag){
+                            textView.setText(subZeroAndDot(String.valueOf(result)));
+                            editView.setText("");
+                            op = "/";
+                        }else {
+                            textView.setText("");
+                            editView.setText("错误");
+                            num = BigDecimal.valueOf(0);
+                            result = BigDecimal.valueOf(0);
+                            op = "+";
+                        }
                         break;
                     }
                     case R.id.multi:{
+                        boolean flag = true;
                         str = editView.getText().toString();
-                        num1 = Double.valueOf(str);
-                        editView.setText(str+'*');
+                        num = new BigDecimal(str);
+                        switch(op){
+                            case "+":
+                                result = result.add(num);
+                                break;
+                            case "-":
+                                result = result.subtract(num);
+                                break;
+                            case "*":
+                                result = result.multiply(num);
+                                break;
+                            case "/":
+                                if(num.compareTo(new BigDecimal(0))==0){
+                                    flag = false;
+                                }else{
+                                    result = result.divide(num,10,4);
+                                }
+                                break;
+                        }
+                        if(flag){
+                            textView.setText(subZeroAndDot(String.valueOf(result)));
+                            editView.setText("");
+                            op = "*";
+                        }else {
+                            textView.setText("");
+                            editView.setText("错误");
+                            num = BigDecimal.valueOf(0);
+                            result = BigDecimal.valueOf(0);
+                            op = "+";
+                        }
                         break;
                     }
                     case R.id.sub:{
+                        boolean flag = true;
                         str = editView.getText().toString();
-                        num1 = Double.valueOf(str);
-                        editView.setText(str+'-');
+                        num = new BigDecimal(str);
+                        switch(op){
+                            case "+":
+                                result = result.add(num);
+                                break;
+                            case "-":
+                                result = result.subtract(num);
+                                break;
+                            case "*":
+                                result = result.multiply(num);
+                                break;
+                            case "/":
+                                if(num.compareTo(new BigDecimal(0))==0){
+                                    flag = false;
+                                }else{
+                                    result = result.divide(num,10,4);
+                                }
+                                break;
+                        }
+                        if(flag){
+                            textView.setText(subZeroAndDot(String.valueOf(result)));
+                            editView.setText("");
+                            op = "-";
+                        }else {
+                            textView.setText("");
+                            editView.setText("错误");
+                            num = BigDecimal.valueOf(0);
+                            result = BigDecimal.valueOf(0);
+                            op = "+";
+                        }
                         break;
                     }
                     case R.id.add:{
+                        boolean flag = true;
                         str = editView.getText().toString();
-                        num1 = Double.valueOf(str);
-                        editView.setText(str+'+');
+                        num = new BigDecimal(str);
+                        switch(op){
+                            case "+":
+                                result = result.add(num);
+                                break;
+                            case "-":
+                                result = result.subtract(num);
+                                break;
+                            case "*":
+                                result = result.multiply(num);
+                                break;
+                            case "/":
+                                if(num.compareTo(new BigDecimal(0))==0){
+                                    flag = false;
+                                }else{
+                                    result = result.divide(num,10,4);
+                                }
+                                break;
+                        }
+                        if(flag){
+                            textView.setText(subZeroAndDot(String.valueOf(result)));
+                            editView.setText("");
+                            op = "+";
+                        }else {
+                            textView.setText("");
+                            editView.setText("错误");
+                            num = BigDecimal.valueOf(0);
+                            result = BigDecimal.valueOf(0);
+                            op = "+";
+                        }
                         break;
                     }
 
                     case R.id.point:{
                         str = editView.getText().toString();
-                        if(str.indexOf('.')==-1){
-                            editView.setText(str+'.');
+                        if(str.indexOf('.')==-1) {
+                            str += '.';
+                            editView.setText(str);
                         }
                         break;
                     }
 
                     case R.id.C:{
                         textView.setText("");
-                        editView.setText(0);
-                        num1 = 0;
-                        num2 = 0;
+                        editView.setText("");
+                        num = BigDecimal.valueOf(0);
+                        result = BigDecimal.valueOf(0);
                         op = "+";
                         break;
                     }
                     case R.id.CE:{
-                        editView.setText(0);
-                        num2 = 0;
+                        editView.setText("");
                         break;
                     }
 
                     case R.id.result:{
-
+                        str = editView.getText().toString();
+                        boolean flag = true;
+                        if(!str.equals("")){
+                            num = new BigDecimal(str);
+                            switch(op){
+                                case "+":
+                                    result = result.add(num);
+                                    break;
+                                case "-":
+                                    result = result.subtract(num);
+                                    break;
+                                case "*":
+                                    result = result.multiply(num);
+                                    break;
+                                case "/":
+                                    if(num.compareTo(new BigDecimal(0))==0){
+                                        flag = false;
+                                    }else{
+                                        result = result.divide(num,10,4);
+                                    }
+                                    break;
+                            }
+                        }
+                        if(flag){
+                            editView.setText(subZeroAndDot(String.valueOf(result)));
+                        }else {
+                            editView.setText("错误");
+                        }
+                        textView.setText("");
+                        num = BigDecimal.valueOf(0);
+                        result = BigDecimal.valueOf(0);
+                        op = "+";
                         break;
                     }
                 }
             }catch(Exception e){}
         }
     };
+    public static String subZeroAndDot(String s){
+        if(s.indexOf(".") > 0){
+            s = s.replaceAll("0+?$", "");//去掉多余的0
+            s = s.replaceAll("[.]$", "");//如最后一位是.则去掉
+        }
+        return s;
+    }
 }
